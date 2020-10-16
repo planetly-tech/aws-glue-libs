@@ -12,12 +12,16 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
   <dependencies>
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>AWSGlueETL</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazon.redshift</groupId>
+      <artifactId>redshift-jdbc41</artifactId>
+      <version>1.2.37.1061</version>
     </dependency>
   </dependencies>
   <repositories>
@@ -25,8 +29,11 @@
       <id>aws-glue-etl-artifacts</id>
       <url>https://aws-glue-etl-artifacts.s3.amazonaws.com/release/</url>
     </repository>
+    <repository>
+      <id>redshift</id>
+      <url>http://redshift-maven-repository.s3-website-us-east-1.amazonaws.com/release</url>
+    </repository>
   </repositories>
-
   <build>
     <plugins>
       <plugin>
@@ -39,7 +46,7 @@
             <goals>
               <goal>enforce</goal>
             </goals>
-            <configuration>
+	    <configuration>
               <rules>
                 <requireMavenVersion>
                   <version>3.5.3</version>
